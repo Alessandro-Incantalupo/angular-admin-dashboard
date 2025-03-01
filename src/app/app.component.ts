@@ -17,5 +17,5 @@ import { Ripple } from 'primeng/ripple';
   styles: [],
 })
 export class AppComponent {
-  title = 'admin-dashboard DISABILE';
+  title = 'admin-dashboard';
 }
