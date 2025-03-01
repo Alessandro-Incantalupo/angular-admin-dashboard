@@ -10,7 +10,7 @@ export const routes: Routes = [
       path: 'home',
       loadChildren: () => import('./layouts/main-layout/main-layout.routes'),
     },
-  // { path: '**', redirectTo: 'errors/404' },
+    // { path: '**', redirectTo: 'errors/404' },
 
   ]
 ;

@@ -15,13 +15,6 @@ export const appConfig: ApplicationConfig = {
     provideAnimationsAsync(),
     provideAngularSvgIcon(),
     provideHttpClient(),
-    providePrimeNG({
-      theme: {
-        preset: Aura,
-        options: {
-          darkModeSelector: '.my-app-dark',
-        },
-      },
-    }),
+    providePrimeNG(),
   ],
 };
