@@ -1,5 +1,5 @@
-import {Routes} from '@angular/router';
-import {MainLayoutComponent} from './main-layout.component';
+import { Routes } from '@angular/router';
+import { MainLayoutComponent } from './main-layout.component';
 
 // Exporting the default array of routes for the MainLayoutComponent
 // This array includes a route with an empty path that uses MainLayoutComponent
@@ -9,6 +9,6 @@ export default [
   {
     path: '',
     component: MainLayoutComponent,
-    children: []
-  }
+    children: [],
+  },
 ] satisfies Routes;

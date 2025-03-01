@@ -12,22 +12,10 @@ import { Ripple } from 'primeng/ripple';
   selector: 'app-root',
   imports: [
     RouterOutlet,
-    Button,
-    Select,
-    FormsModule,
-    Textarea,
-    Checkbox,
-    ReactiveFormsModule,
-    WindowMaximizeIcon,
-    Ripple,
-    ButtonDirective,
-    ButtonIcon,
-    ButtonLabel,
-    RouterLink,
   ],
   templateUrl: './app.component.html',
   styles: [],
 })
 export class AppComponent {
-  title = 'admin-dashboard';
+  title = 'admin-dashboard DISABILE';
 }
