@@ -1,12 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterLink, RouterOutlet } from '@angular/router';
-import { Button, ButtonDirective, ButtonIcon, ButtonLabel } from 'primeng/button';
-import { Select } from 'primeng/select';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { Textarea } from 'primeng/textarea';
-import { Checkbox } from 'primeng/checkbox';
-import { WindowMaximizeIcon } from 'primeng/icons';
-import { Ripple } from 'primeng/ripple';
+import { ThemeService } from './core/services/theme.service';
 
 @Component({
   selector: 'app-root',
@@ -18,4 +12,5 @@ import { Ripple } from 'primeng/ripple';
 })
 export class AppComponent {
   title = 'admin-dashboard';
+  themeService = inject(ThemeService);
 }
