@@ -1,51 +1,20 @@
-<!--@for (menu of menuService.pagesMenu; track $index) {-->
-<!--  <div class="dropdown relative inline-block">-->
-<!--    &lt;!&ndash; Button &ndash;&gt;-->
-<!--    <button-->
-<!--      [ngClass]="-->
-<!--      menu.selected || menu.active-->
-<!--        ? 'bg-primary text-primary-foreground'-->
-<!--        : 'text-muted-foreground/50 hover:bg-card hover:text-muted-foreground '-->
-<!--    "-->
-<!--      class="mr-2 inline-flex rounded-md px-3 py-2 text-sm font-medium">-->
-<!--      <span>{{ menu.group }}</span>-->
-<!--    </button>-->
-<!--    &lt;!&ndash; Dropdown  &ndash;&gt;-->
-<!--    <div-->
-<!--      class="dropdown-content absolute top-[100%] min-w-[200px] origin-top-left z-10"-->
-<!--      navbar-submenu-->
-<!--      [submenu]="menu.items">-->
+@for (menu of menuService.pagesMenu; track $index) {
+  <div class="dropdown relative inline-block">
+    <!-- Button -->
+    <button
+      [ngClass]="
+      menu.selected || menu.active
+        ? 'bg-primary text-primary-foreground'
+        : 'text-muted-foreground/50 hover:bg-card hover:text-muted-foreground '
+    "
+      class="mr-2 inline-flex rounded-md px-3 py-2 text-sm font-medium">
+      <span>{{ menu.group }}</span>
+    </button>
+    <!-- Dropdown  -->
+    <app-navbar-submenu
+      class="dropdown-content absolute top-[100%] min-w-[200px] origin-top-left z-10"
+      [submenu]="menu.items">
 
-<!--    </div>-->
-<!--  </div>-->
-<!--}-->
-
-
-<div class="card flex justify-center">
-  <p-tieredMenu [model]="items">
-    <ng-template #item let-item let-hasSubmenu="hasSubmenu">
-      <ng-container *ngIf="item.route; else withoutRoute">
-        <a [routerLink]="item.route" [href]="item.href" class="p-tieredmenu-item-link">
-          <span class="item.icon"></span>
-          <span class="ml-2">{{ item.label }}</span>
-        </a>
-      </ng-container>
-      <ng-template #withoutRoute>
-        <ng-container *ngIf="item.url; else withoutUrl">
-          <a [href]="item.url" [target]="item.target" class="p-tieredmenu-item-link">
-            <span [class]="item.icon"></span>
-            <span class="ml-2">{{ item.label }}</span>
-            <span *ngIf="hasSubmenu" class="pi pi-angle-right ml-auto"></span>
-          </a>
-        </ng-container>
-        <ng-template #withoutUrl>
-          <a class="p-tieredmenu-item-link">
-            <span [class]="item.icon"></span>
-            <span class="ml-2">{{ item.label }}</span>
-            <span *ngIf="hasSubmenu" class="pi pi-angle-right ml-auto"></span>
-          </a>
-        </ng-template>
-      </ng-template>
-    </ng-template>
-  </p-tieredMenu>
-</div>
+    </app-navbar-submenu>
+  </div>
+}
