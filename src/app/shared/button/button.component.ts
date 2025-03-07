@@ -6,6 +6,10 @@ import { ButtonProps } from './model/button.model';
   imports: [],
   templateUrl: './button.component.html',
   styles: ``,
+  // host: {
+  //   class: 'button',
+  //   '(click)': 'onButtonClick()',
+  // },
 })
 export class ButtonComponent implements OnInit {
   impact = input<ButtonProps['impact']>('none');

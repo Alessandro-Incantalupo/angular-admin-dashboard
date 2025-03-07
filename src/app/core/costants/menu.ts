@@ -1,4 +1,3 @@
-import { MenuItem } from 'primeng/api';
 import { CustomMenuItem } from '../models/menu.model';
 
 export const pages: CustomMenuItem[] = [
