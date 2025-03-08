@@ -2,7 +2,7 @@ import { Component, input, OnInit, output } from '@angular/core';
 import { ButtonProps } from './model/button.model';
 
 @Component({
-  selector: 'app-button',
+  selector: 'button[app-button]',
   imports: [],
   templateUrl: './button.component.html',
   styles: ``,
@@ -90,7 +90,7 @@ export class ButtonComponent implements OnInit {
       this.sizeClasses[this.size()],
       this.shapeClasses[this.shape()],
       this.shadowClasses[this.shadow()],
-      this.full() ? 'w-full' : ''
+      this.full() ? 'w-full' : '',
     );
   }
 
