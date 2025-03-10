@@ -8,15 +8,15 @@
 /** Plugins **/
 @import './assets/styles/apexchart.css';
 
-/*@plugin "@tailwindcss/forms";*/
-/*@plugin "@tailwindcss/typography";*/
-/*@plugin "@tailwindcss/aspect-ratio";*/
-/*@plugin "tailwind-scrollbar";*/
+@plugin "@tailwindcss/forms";
+@plugin "@tailwindcss/typography";
+@plugin "@tailwindcss/aspect-ratio";
+@plugin "tailwind-scrollbar";
 
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-  --font-*: initial;
+  --font- *: initial;
   --font-poppins: Poppins, system-ui, sans-serif;
   --font-nunito: Nunito Sans, sans-serif;
 
