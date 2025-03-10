@@ -8,10 +8,10 @@ export const routes: Routes = [
     // pathMatch: 'full',
     loadChildren: () => import('./layouts/main-layout/main-layout.routes'),
   },
-  // {
-  //   path: 'home',
-  //   loadChildren: () => import('./layouts/main-layout/main-layout.routes'),
-  // },
+  {
+    path: 'auth',
+    loadChildren: () => import('./features/auth/auth.routes'),
+  },
   {
     path: '**',
     component: ErrorPageComponent,
