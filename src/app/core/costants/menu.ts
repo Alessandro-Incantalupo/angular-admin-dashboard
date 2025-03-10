@@ -37,9 +37,9 @@ export const pages: CustomMenuItem[] = [
       },
       {
         icon: 'assets/icons/heroicons/outline/cube.svg',
-        label: 'Components',
-        route: '/components',
-        children: [{ label: 'Table', route: '/components/table' }],
+        label: 'Features',
+        route: '/',
+        children: [{ label: 'Table', route: '/features/ui/table' }],
       },
     ],
   },
