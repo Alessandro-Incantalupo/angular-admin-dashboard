@@ -1,109 +1,73 @@
-<div class="flex h-screen w-screen">
-  <div class="auth-bg bg-primary hidden flex-1 items-center justify-center bg-cover lg:flex">
-    <div class="max-w-2xl space-y-4 p-8 text-center text-white">
-      <img src="./assets/images/auth-screens.png" alt="dashboard widget"/>
-      <h1 class="text-4xl font-bold">"Fast, Efficient and Productive"</h1>
-      <p class="text-xs font-light">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-        magna aliqua. Ut enim ad minim veniam, quis
-        <span class="cursor-pointer font-medium text-yellow-400">nostrud</span> exercitation ullamco laboris nisi ut
-        aliquip ex ea commodo <span class="cursor-pointer font-medium text-yellow-400">consequat.</span> Duis aute irure
-        dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-        cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-      </p>
+<div class="flex items-center justify-center min-h-screen">
+  <form class="my-10 space-y-6 p-6 bg-card rounded-lg shadow-lg w-full max-w-md">
+    <div class="text-center">
+      <h2 class="text-foreground mb-1 text-3xl font-semibold">Sign Up <span class="text-primary">!</span></h2>
+      <p class="text-muted-foreground text-sm">Let's get started with your 30 day free trial</p>
     </div>
-  </div>
-  <div class="bg-background flex flex-1 items-center justify-center">
-    <div class="max-w-md overflow-y-auto px-4 sm:w-[500px]">
-      <!-- logo -->
-      <div class="flex items-center justify-center gap-3">
-        <a class="bg-primary rounded-sm p-2">
-          <svg-icon src="assets/icons/logo.svg" [svgClass]="'h-5 w-5'"></svg-icon>
-        </a>
-        <b class="text-md text-foreground font-bold"> Admin Dashboard</b>
+
+    <div class="flex justify-center" routerLink="/dashboard">
+      <button app-button full impact="bold" tone="light" shape="rounded" size="medium">
+        <svg-icon src="assets/icons/google-logo.svg" [svgClass]="'h-6 w-6 mr-2'"></svg-icon>
+        Sign Up with Google
+      </button>
+    </div>
+
+    <div
+      class="before:border-muted after:border-muted my-4 flex items-center before:mt-0.5 before:flex-1 before:border-t after:mt-0.5 after:flex-1 after:border-t">
+      <p class="text-muted-foreground mx-4 mb-0 text-center text-sm">or</p>
+    </div>
+
+    <div class="space-y-3 text-left">
+      <div class="relative">
+        <input type="text" id="email" class="peer block" placeholder=" "/>
+        <label for="email"
+               class="bg-background text-muted-foreground peer-focus:text-primary absolute top-2 left-1 z-10 origin-[0] -translate-y-4 scale-95 transform px-2 text-sm duration-300 peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:scale-100 peer-focus:top-2 peer-focus:-translate-y-4 peer-focus:scale-95 peer-focus:px-2">
+          Email address
+        </label>
       </div>
-      <!-- Route -->
-      <form class="my-10 space-y-6">
-        <div class="text-center">
-          <h2 class="text-foreground mb-1 text-3xl font-semibold">Sign Up <span class="text-primary">!</span></h2>
-          <p class="text-muted-foreground text-sm">Let's get started with your 30 day free trial</p>
-        </div>
-
-        <div routerLink="/dashboard">
-          <button app-button full impact="bold" tone="light" shape="rounded" size="medium">
-            <svg-icon src="assets/icons/google-logo.svg" [svgClass]="'h-6 w-6 mr-2'"></svg-icon>
-            Sign Up with Google
-          </button>
-        </div>
-
-        <div
-          class="before:border-muted after:border-muted my-4 flex items-center before:mt-0.5 before:flex-1 before:border-t after:mt-0.5 after:flex-1 after:border-t">
-          <p class="text-muted-foreground mx-4 mb-0 text-center text-sm">or</p>
-        </div>
-
-        <div class="space-y-3 text-left">
-          <div class="relative">
-            <input type="text" id="email" class="peer block" placeholder=" "/>
-            <label
-              for="email"
-              class="bg-background text-muted-foreground peer-focus:text-primary absolute top-2 left-1 z-10 origin-[0] -translate-y-4 scale-95 transform px-2 text-sm duration-300 peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:scale-100 peer-focus:top-2 peer-focus:-translate-y-4 peer-focus:scale-95 peer-focus:px-2">
-              Email address
-            </label>
-          </div>
-          <div class="relative">
-            <input type="password" id="password" class="peer block" placeholder=" "/>
-            <label
-              for="password"
-              class="bg-background text-muted-foreground peer-focus:text-primary absolute top-2 left-1 z-10 origin-[0] -translate-y-4 scale-95 transform px-2 text-sm duration-300 peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:scale-100 peer-focus:top-2 peer-focus:-translate-y-4 peer-focus:scale-95 peer-focus:px-2">
-              Password
-            </label>
-            <span class="text-muted-foreground absolute top-2.5 right-5 cursor-pointer">
-        <svg-icon src="assets/icons/heroicons/outline/eye-off.svg" [svgClass]="'h-5 w-5'"> </svg-icon>
-        <svg-icon src="assets/icons/heroicons/outline/eye.svg" [svgClass]="'h-5 w-5 hidden'"> </svg-icon>
+      <div class="relative">
+        <input type="password" id="password" class="peer block" placeholder=" "/>
+        <label for="password"
+               class="bg-background text-muted-foreground peer-focus:text-primary absolute top-2 left-1 z-10 origin-[0] -translate-y-4 scale-95 transform px-2 text-sm duration-300 peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:scale-100 peer-focus:top-2 peer-focus:-translate-y-4 peer-focus:scale-95 peer-focus:px-2">
+          Password
+        </label>
+        <span class="text-muted-foreground absolute top-2.5 right-5 cursor-pointer">
+          <svg-icon src="assets/icons/heroicons/outline/eye-off.svg" [svgClass]="'h-5 w-5'"> </svg-icon>
+          <svg-icon src="assets/icons/heroicons/outline/eye.svg" [svgClass]="'h-5 w-5 hidden'"> </svg-icon>
+        </span>
+      </div>
+      <div class="grid grid-cols-4 gap-2">
+        <div class="rounded-xs bg-muted h-1"></div>
+        <div class="rounded-xs bg-muted h-1"></div>
+        <div class="rounded-xs bg-muted h-1"></div>
+        <div class="rounded-xs bg-muted h-1"></div>
+      </div>
+      <span class="text-muted-foreground text-xs">
+        Use 8 or more characters with a mix of letters, numbers & symbols.
       </span>
-          </div>
-          <!-- Password Meeter -->
-          <div class="grid grid-cols-4 gap-2">
-            <div class="rounded-xs bg-muted h-1"></div>
-            <div class="rounded-xs bg-muted h-1"></div>
-            <div class="rounded-xs bg-muted h-1"></div>
-            <div class="rounded-xs bg-muted h-1"></div>
-          </div>
-          <span class="text-muted-foreground text-xs">
-      Use 8 or more characters with a mix of letters, numbers & symbols.
-    </span>
-          <div class="relative">
-            <input type="password" id="confirm-password" class="peer block" placeholder=" "/>
-            <label
-              for="confirm-password"
-              class="bg-background text-muted-foreground peer-focus:text-primary absolute top-2 left-1 z-10 origin-[0] -translate-y-4 scale-95 transform px-2 text-sm duration-300 peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:scale-100 peer-focus:top-2 peer-focus:-translate-y-4 peer-focus:scale-95 peer-focus:px-2">
-              Confirm Password
-            </label>
-          </div>
-        </div>
-
-        <div class="flex items-center justify-between space-x-3">
-          <div class="flex items-center gap-1">
-            <input id="accept-term" name="accept-term" type="checkbox"/>
-            <label for="accept-term" class="text-muted-foreground ml-2 block text-sm"> I Accept the </label>
-            <button app-button impact="none" tone="primary" shape="rounded" size="small"> Terms</button>
-          </div>
-        </div>
-
-        <!-- Submit Button -->
-        <div>
-          <button app-button full impact="bold" tone="primary" shape="rounded" size="medium">Sign up</button>
-        </div>
-
-        <!-- Sign-up -->
-        <div class="text-muted-foreground flex items-center text-sm">
-          Already have an Account?
-          <button app-button routerLink="/auth/sign-in" impact="none" tone="primary" shape="rounded" size="small">
-            Sign in
-          </button>
-        </div>
-      </form>
-
+      <div class="relative">
+        <input type="password" id="confirm-password" class="peer block" placeholder=" "/>
+        <label for="confirm-password"
+               class="bg-background text-muted-foreground peer-focus:text-primary absolute top-2 left-1 z-10 origin-[0] -translate-y-4 scale-95 transform px-2 text-sm duration-300 peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:scale-100 peer-focus:top-2 peer-focus:-translate-y-4 peer-focus:scale-95 peer-focus:px-2">
+          Confirm Password
+        </label>
+      </div>
     </div>
-  </div>
+
+    <div class="flex items-center justify-between space-x-3">
+      <div class="flex items-center gap-1">
+        <input id="accept-term" name="accept-term" type="checkbox"/>
+        <label for="accept-term" class="text-muted-foreground ml-2 block text-sm"> I Accept the </label>
+        <button app-button impact="none" tone="primary" shape="rounded" size="small"> Terms</button>
+      </div>
+      <button app-button full impact="bold" tone="primary" shape="rounded" size="medium">Sign up</button>
+    </div>
+
+    <div class="text-muted-foreground flex items-center justify-center text-sm">
+      Already have an Account?
+      <button app-button routerLink="/auth/sign-in" impact="none" tone="primary" shape="rounded" size="small">
+        Sign in
+      </button>
+    </div>
+  </form>
 </div>
