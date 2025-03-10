@@ -1,5 +1,5 @@
 import { Routes } from '@angular/router';
-import { MainLayoutComponent } from './main-layout.component';
+import TableComponent from './table/table.component';
 
 // Exporting the default array of routes for the MainLayoutComponent
 // This array includes a route with an empty path that uses MainLayoutComponent
@@ -8,12 +8,11 @@ import { MainLayoutComponent } from './main-layout.component';
 export default [
   {
     path: '',
-    // pathMatch: 'full',
-    component: MainLayoutComponent,
+    component: TableComponent,
     children: [
       {
-        path: 'features/ui',
-        loadChildren: () => import('../../features/ui/ui.routes'),
+        path: 'table',
+        component: TableComponent,
       },
     ],
   },
