@@ -4,6 +4,7 @@ import { Router, RouterLink } from '@angular/router';
 import { ButtonComponent } from '../../../shared/button/button.component';
 import { NonNullableFormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AuthService } from '../services/auth.service';
+import { PATHS } from '../../../core/costants/routes';
 
 @Component({
   selector: 'app-sign-in',
@@ -19,6 +20,7 @@ export default class SignInComponent {
   isLoading = signal(false);
   submitted = false;
   passwordTextType!: boolean;
+  loginError = signal<string | null>(null); // Store login error
 
   // Reactive Form
   form = this.nnfb.group({
@@ -28,15 +30,22 @@ export default class SignInComponent {
 
   onSubmit() {
     this.submitted = true;
-    console.log('Signing in user:', this.form.value);
-    if (this.form.invalid) return; // Stop if invalid form
+    this.loginError.set(null); // Clear previous errors
+
+    if (this.form.invalid) return;
 
     this.isLoading.set(true);
-    localStorage.setItem('token', 'fake-jwt-token'); // Simulate authentication
-    setTimeout(() => {
-      this.form.markAsPristine(); // ✅ Mark form as clean to prevent `canDeactivate`
-      this.router.navigate(['/profile']);
-    }, 1000);
+    const { email, password } = this.form.value;
+
+    const success = this.authService.login(email!, password!);
+    if (success) {
+      this.form.markAsPristine();
+      const userData = this.authService.getUserData();
+      this.router.navigate([PATHS.PROFILE, userData.username], { state: { userData } });
+    } else {
+      this.loginError.set('Invalid email or password');
+      this.isLoading.set(false);
+    }
   }
 
   // Helper function to check form field validity
@@ -48,4 +57,6 @@ export default class SignInComponent {
   togglePasswordTextType() {
     this.passwordTextType = !this.passwordTextType;
   }
+
+  protected readonly PATHS = PATHS;
 }
