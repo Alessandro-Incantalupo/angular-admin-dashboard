@@ -1,4 +1,5 @@
 import { CustomMenuItem } from '../models/menu.model';
+import { PATHS } from './routes';
 
 export const pages: CustomMenuItem[] = [
   {
@@ -8,38 +9,38 @@ export const pages: CustomMenuItem[] = [
       {
         icon: 'assets/icons/heroicons/outline/chart-pie.svg',
         label: 'Dashboard',
-        route: '/dashboard',
+        route: PATHS.DASHBOARD,
         children: [
-          { label: 'Nfts', route: '/dashboard/nfts' },
+          { label: 'Nfts', route: PATHS.DASHBOARD_NFTS },
           // { label: 'Podcast', route: '/dashboard/podcast' },
         ],
       },
       {
         icon: 'assets/icons/heroicons/outline/lock-closed.svg',
         label: 'Auth',
-        route: '/auth',
+        route: PATHS.AUTH,
         children: [
-          { label: 'Sign up', route: '/auth/sign-up' },
-          { label: 'Sign in', route: '/auth/sign-in' },
-          { label: 'Forgot Password', route: '/auth/forgot-password' },
-          { label: 'New Password', route: '/auth/new-password' },
-          { label: 'Two Steps', route: '/auth/two-steps' },
+          { label: 'Sign up', route: PATHS.SIGN_UP },
+          { label: 'Sign in', route: PATHS.SIGN_IN },
+          { label: 'Forgot Password', route: PATHS.FORGOT_PASSWORD },
+          { label: 'New Password', route: PATHS.NEW_PASSWORD },
+          { label: 'Two Steps', route: PATHS.TWO_STEPS },
         ],
       },
       {
         icon: 'assets/icons/heroicons/outline/exclamation-triangle.svg',
         label: 'Errors',
-        route: '/errors',
+        route: PATHS.ERRORS,
         children: [
-          { label: '404', route: '/errors/404' },
-          { label: '500', route: '/errors/500' },
+          { label: '404', route: PATHS.ERROR_404 },
+          { label: '500', route: PATHS.ERROR_500 },
         ],
       },
       {
         icon: 'assets/icons/heroicons/outline/cube.svg',
         label: 'Features',
-        route: '/',
-        children: [{ label: 'Table', route: '/features/ui/table' }],
+        route: PATHS.FEATURES,
+        children: [{ label: 'Table', route: PATHS.FEATURES_TABLE }],
       },
     ],
   },
@@ -50,17 +51,17 @@ export const pages: CustomMenuItem[] = [
       {
         icon: 'assets/icons/heroicons/outline/download.svg',
         label: 'Download',
-        route: '/download',
+        route: PATHS.DOWNLOAD,
       },
       {
         icon: 'assets/icons/heroicons/outline/gift.svg',
         label: 'Gift Card',
-        route: '/gift',
+        route: PATHS.GIFT,
       },
       {
         icon: 'assets/icons/heroicons/outline/users.svg',
         label: 'Users',
-        route: '/users',
+        route: PATHS.USERS,
       },
     ],
   },
@@ -71,21 +72,21 @@ export const pages: CustomMenuItem[] = [
       {
         icon: 'assets/icons/heroicons/outline/cog.svg',
         label: 'Settings',
-        route: '/settings',
+        route: PATHS.SETTINGS,
       },
       {
         icon: 'assets/icons/heroicons/outline/bell.svg',
         label: 'Notifications',
-        route: '/gift',
+        route: PATHS.NOTIFICATIONS,
       },
       {
         icon: 'assets/icons/heroicons/outline/folder.svg',
         label: 'Folders',
-        route: '/folders',
+        route: PATHS.FOLDERS,
         children: [
-          { label: 'Current Files', route: '/folders/current-files' },
-          { label: 'Downloads', route: '/folders/download' },
-          { label: 'Trash', route: '/folders/trash' },
+          { label: 'Current Files', route: PATHS.FOLDERS_CURRENT_FILES },
+          { label: 'Downloads', route: PATHS.FOLDERS_DOWNLOAD },
+          { label: 'Trash', route: PATHS.FOLDERS_TRASH },
         ],
       },
     ],
