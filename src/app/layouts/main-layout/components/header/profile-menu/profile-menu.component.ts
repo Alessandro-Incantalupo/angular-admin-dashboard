@@ -4,6 +4,7 @@ import { SvgIconComponent } from 'angular-svg-icon';
 import { RouterLink } from '@angular/router';
 import { ThemeService } from '../../../../../core/services/theme.service';
 import { ClickOutsideDirective } from '../../../../../shared/directives/click-outside.directive';
+import { AuthService } from '../../../../../features/auth/services/auth.service';
 
 @Component({
   selector: 'app-profile-menu',
@@ -13,6 +14,8 @@ import { ClickOutsideDirective } from '../../../../../shared/directives/click-ou
 })
 export class ProfileMenuComponent {
   themeService = inject(ThemeService);
+  authService = inject(AuthService);
+
   public isOpen = false;
   public profileMenu = [
     {
@@ -86,5 +89,9 @@ export class ProfileMenuComponent {
     return this.isOpen
       ? 'scale-100 opacity-100 translate-y-0 visible'
       : 'scale-95 opacity-0 -translate-y-5 invisible';
+  }
+
+  logout() {
+    this.authService.logout();
   }
 }
