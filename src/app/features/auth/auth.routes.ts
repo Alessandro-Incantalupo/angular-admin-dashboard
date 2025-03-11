@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router';
 import SignUpComponent from './sign-up/sign-up.component';
+import { UnsavedChangesGuard } from '../../core/guards/unsaved-changes.guard';
 
 // Exporting the default array of routes for the MainLayoutComponent
 // This array includes a route with an empty path that uses MainLayoutComponent
@@ -14,7 +15,11 @@ export default [
         loadComponent: () => import('./sign-in/sign-in.component'),
         // data: { returnUrl: window.location.pathname },
       },
-      { path: 'sign-up', loadComponent: () => import('./sign-up/sign-up.component') },
+      {
+        path: 'sign-up',
+        loadComponent: () => import('./sign-up/sign-up.component'),
+        canDeactivate: [UnsavedChangesGuard], // Prevents form loss
+      },
     ],
   },
 ] satisfies Routes;

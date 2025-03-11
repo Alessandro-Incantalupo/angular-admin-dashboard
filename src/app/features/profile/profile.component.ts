@@ -4,8 +4,6 @@ import { Component } from '@angular/core';
   selector: 'app-profile',
   imports: [],
   templateUrl: './profile.component.html',
-  styles: ``
+  styles: ``,
 })
-export class ProfileComponent {
-
-}
+export default class ProfileComponent {}
