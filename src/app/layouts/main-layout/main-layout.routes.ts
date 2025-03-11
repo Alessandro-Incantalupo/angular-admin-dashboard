@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router';
 import { MainLayoutComponent } from './main-layout.component';
+import { MenuService } from './services/menu.service';
 
 // Exporting the default array of routes for the MainLayoutComponent
 // This array includes a route with an empty path that uses MainLayoutComponent
@@ -10,6 +11,7 @@ export default [
     path: '',
     // pathMatch: 'full',
     component: MainLayoutComponent,
+    providers: [MenuService],
     children: [
       {
         path: 'features/ui',

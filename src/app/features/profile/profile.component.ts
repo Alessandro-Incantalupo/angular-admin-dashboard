@@ -80,6 +80,6 @@ export default class ProfileComponent {
 
   logout() {
     this.authService.logout();
-    this.router.navigate([PATHS.SIGN_IN]);
+    this.router.navigate(['/']);
   }
 }
