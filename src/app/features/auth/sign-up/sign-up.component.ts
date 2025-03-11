@@ -38,6 +38,7 @@ export default class SignUpComponent {
     this.isLoading.set(true);
     localStorage.setItem('token', 'fake-jwt-token'); // Simulate authentication
     setTimeout(() => {
+      this.form.markAsPristine(); // ✅ Mark form as clean to prevent `canDeactivate`
       this.router.navigate(['/profile']);
     }, 1000);
   }
