@@ -1,0 +1,25 @@
+<nav aria-label="breadcrumb">
+  <p class="sr-only">Ti trovi in:</p>
+  <ol class="" role="list">
+    <li>
+      <a class="!text-white" routerLink="/home">
+        <span aria-hidden="true" class="fas fa-home"></span>
+        Home
+      </a>
+    </li>
+    @for (item of items(); track $index) {
+      <li class="before:!-text-white">
+        <a
+          class="!text-white"
+          [class.hover:-cursor-pointer]="item.route"
+          [routerLink]="item.route"
+          [state]="item.routeState ?? undefined"
+          [attr.aria-current]="$last ? 'page' : undefined"
+          (click)="navigateTo(item)"
+        >
+          {{ item.label }}
+        </a>
+      </li>
+    }
+  </ol>
+</nav>

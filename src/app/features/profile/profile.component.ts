@@ -1,16 +1,17 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { AuthService } from '../auth/services/auth.service';
 import { PATHS } from '../../core/costants/routes';
 import { SvgIconComponent } from 'angular-svg-icon';
 import { ThemeService } from '../../core/services/theme.service';
 import { ButtonComponent } from '../../shared/button/button.component';
+import { BreadcrumbComponent } from '../../shared/breadcrumb/breadcrumb.component';
 
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
   styles: [],
-  imports: [SvgIconComponent, ButtonComponent, RouterLink],
+  imports: [SvgIconComponent, ButtonComponent, RouterLink, BreadcrumbComponent],
 })
 export default class ProfileComponent {
   router = inject(Router);
@@ -18,9 +19,11 @@ export default class ProfileComponent {
   authService = inject(AuthService);
   themeService = inject(ThemeService);
 
+  breadcrumbItems = signal<{ label: string; route?: string }[]>([]);
+
   state = this.router.getCurrentNavigation()?.extras.state;
   userData: { [key: string]: any } | undefined = undefined;
-  username: string = 'Guest';
+  username = signal('Guest');
 
   public themeColors = [
     {
@@ -61,7 +64,11 @@ export default class ProfileComponent {
 
     // Get username from route parameters
     this.route.params.subscribe((params) => {
-      this.username = params['username']; // Read the :username parameter
+      const currentUsername = params['username'] || this.username();
+      this.username.set(currentUsername);
+
+      // ✅ Update breadcrumbs dynamically
+      this.breadcrumbItems.set([{ label: 'Profile', route: `/profile/${currentUsername}` }]);
     });
   }
 
