@@ -28,8 +28,8 @@
         <!-- Menu Items -->
         <ul class="my-2 mx-4 flex flex-col">
           @for (item of profileMenu; track $index) {
-            <li
-              class="text-muted-foreground hover:bg-card hover:text-primary inline-flex cursor-pointer items-center gap-2 rounded-md px-3 py-2 text-xs font-semibold">
+            <li (click)="toProfile(item.link)"
+                class="text-muted-foreground hover:bg-card hover:text-primary inline-flex cursor-pointer items-center gap-2 rounded-md px-3 py-2 text-xs font-semibold">
               <svg-icon src="{{ item.icon }}" [svgClass]="'h-5 w-5 text-muted-foreground/50'"></svg-icon>
               {{ item.title }}
             </li>
@@ -88,7 +88,7 @@
 } @else {
   <!-- If NOT Logged In, Show Login Button -->
   <div class="relative ml-3">
-    <a routerLink="/auth/sign-up"
+    <a (click)="signIn()"
        class="bg-primary text-white px-4 py-2 rounded-md font-semibold text-sm hover:bg-primary-dark transition">
       Sign In
     </a>

@@ -6,7 +6,13 @@
       <p class="text-muted-foreground text-sm">Enter your credential to access your account.</p>
     </div>
 
-    <div class="flex justify-center" routerLink="/dashboard">
+    @if (loginError()) {
+      <div class="text-red-500 text-sm text-center">
+        {{ loginError() }}
+      </div>
+    }
+
+    <div class="flex justify-center" [routerLink]="PATHS.DASHBOARD">
       <button app-button full impact="bold" tone="light" shape="rounded" size="medium">
         <svg-icon src="assets/icons/google-logo.svg" [svgClass]="'h-6 w-6 mr-2'"></svg-icon>
         Log in with Google
@@ -79,19 +85,18 @@
         <label for="remember-me" class="text-muted-foreground ml-2 block text-sm"> Remember me </label>
       </div>
 
-      <button app-button routerLink="/auth/forgot-password" impact="none" tone="primary" shape="rounded" size="small">
+      <button app-button [routerLink]="PATHS.FORGOT_PASSWORD" impact="none" tone="primary" shape="rounded" size="small">
         Forgot your password?
       </button>
     </div>
 
-    <div class="flex justify-end">
-      <button app-button full impact="bold" tone="primary" shape="rounded" size="medium">Sign in
-      </button>
+    <div class="flex justify-center w-full">
+      <button app-button full impact="bold" tone="primary" shape="rounded" size="medium" class="w-full">Sign in</button>
     </div>
 
-    <div class="text-muted-foreground flex items-center text-sm">
+    <div class="text-muted-foreground flex items-center text-sm justify-center">
       Not a Member yet?
-      <button app-button routerLink="/auth/sign-up" impact="none" tone="primary" shape="rounded" size="small">
+      <button app-button [routerLink]="PATHS.SIGN_UP" impact="none" tone="primary" shape="rounded" size="small">
         Sign up
       </button>
     </div>

@@ -1,10 +1,11 @@
 import { Component, inject } from '@angular/core';
 import { NgClass } from '@angular/common';
 import { SvgIconComponent } from 'angular-svg-icon';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { ThemeService } from '../../../../../core/services/theme.service';
 import { ClickOutsideDirective } from '../../../../../shared/directives/click-outside.directive';
 import { AuthService } from '../../../../../features/auth/services/auth.service';
+import { PATHS } from '../../../../../core/costants/routes';
 
 @Component({
   selector: 'app-profile-menu',
@@ -15,23 +16,24 @@ import { AuthService } from '../../../../../features/auth/services/auth.service'
 export class ProfileMenuComponent {
   themeService = inject(ThemeService);
   authService = inject(AuthService);
+  router = inject(Router);
 
   public isOpen = false;
   public profileMenu = [
     {
       title: 'Your Profile',
       icon: './assets/icons/heroicons/outline/user-circle.svg',
-      link: '/profile',
+      link: PATHS.PROFILE,
     },
     {
       title: 'Settings',
       icon: './assets/icons/heroicons/outline/cog-6-tooth.svg',
-      link: '/settings',
+      link: PATHS.SETTINGS,
     },
     {
       title: 'Log out',
       icon: './assets/icons/heroicons/outline/logout.svg',
-      link: '/auth',
+      link: PATHS.AUTH,
     },
   ];
 
@@ -93,5 +95,17 @@ export class ProfileMenuComponent {
 
   logout() {
     this.authService.logout();
+  }
+
+  signIn() {
+    this.router.navigate([PATHS.SIGN_IN]);
+  }
+
+  toProfile(link: string) {
+    const userData = this.authService.getUserData(); // Get the user object
+    const username = userData?.username || 'Guest'; // Extract the username
+    this.router.navigate([PATHS.PROFILE + '/' + username], {
+      state: { userData: this.authService.getUserData() },
+    });
   }
 }
