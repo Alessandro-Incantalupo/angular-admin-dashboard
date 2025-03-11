@@ -4,9 +4,7 @@ import { Subscription } from 'rxjs';
 import { CustomMenuItem, SubMenuItem } from '../../../core/models/menu.model';
 import { pages } from '../../../core/costants/menu';
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable()
 export class MenuService implements OnDestroy {
   private _showSidebar = signal(true);
   private _showMobileMenu = signal(false);
