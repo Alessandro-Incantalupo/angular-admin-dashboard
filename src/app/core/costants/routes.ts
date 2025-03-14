@@ -5,6 +5,7 @@ export const PATHS = {
   PROFILE: 'profile',
   SIGN_UP: 'auth/sign-up',
   SIGN_IN: 'auth/sign-in',
+  SIGN_IN_TEMPLATE_DRIVEN: 'auth/sign-in-template-driven',
   FORGOT_PASSWORD: 'auth/forgot-password',
   NEW_PASSWORD: 'auth/new-password',
   TWO_STEPS: 'auth/two-steps',

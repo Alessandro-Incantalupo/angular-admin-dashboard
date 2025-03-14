@@ -22,6 +22,7 @@ export const pages: CustomMenuItem[] = [
         children: [
           { label: 'Sign up', route: PATHS.SIGN_UP },
           { label: 'Sign in', route: PATHS.SIGN_IN },
+          { label: 'Sign in template driven', route: PATHS.SIGN_IN_TEMPLATE_DRIVEN },
           { label: 'Forgot Password', route: PATHS.FORGOT_PASSWORD },
           { label: 'New Password', route: PATHS.NEW_PASSWORD },
           { label: 'Two Steps', route: PATHS.TWO_STEPS },

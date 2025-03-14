@@ -20,6 +20,10 @@ export default [
         loadComponent: () => import('./sign-up/sign-up.component'),
         canDeactivate: [UnsavedChangesGuard], // Prevents form loss
       },
+      {
+        path: 'sign-in-template-driven',
+        loadComponent: () => import('./sign-in-template-driven/sign-in-template-driven.component'),
+      },
     ],
   },
 ] satisfies Routes;
