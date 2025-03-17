@@ -12,7 +12,7 @@ export class AuthService {
 
   login(email: string, password: string) {
     if (email === 'admin@example.com' && password === 'admin123') {
-      const userData = { email, role: 'admin', username: 'AdminUser' };
+      const userData = { email, role: 'admin', username: 'Alessandro Incantalupo' };
       localStorage.setItem(this.tokenKey, 'fake-jwt-token');
       localStorage.setItem(this.userDataKey, JSON.stringify(userData));
       this.isAuthenticated.set(true);
