@@ -1,59 +1,138 @@
-# AdminDashboard
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.0.
+# 🧠 Angular Admin Dashboard – Developer Notes (for Notion)
 
-## Development server
+## ✅ Step 1: Bootstrapping & App Configuration
 
-To start a local development server, run:
+### ✅ What this part of the app does
+- Boots the app with **standalone APIs** — no `AppModule` needed
+- All global providers (routing, HTTP, DI tokens, animations) are set in `app.config.ts`
 
-```bash
-ng serve
+---
+
+### 💡 Why it’s important in Angular
+- Angular v15+ supports **standalone components and applications**
+- This makes apps more **tree-shakable**, **lightweight**, and **modular**
+- Shows you're using **modern Angular best practices**
+
+---
+
+### 🧠 What I applied
+- Used `bootstrapApplication()` in `main.ts`
+- Registered routing, HTTP, animations, PrimeNG, and Angular SVG Icon via DI
+- Introduced a global token `APP_INFO` from `package.json`
+
+---
+
+### 🔧 Code Snippet
+
+```ts
+// main.ts
+bootstrapApplication(AppComponent, appConfig);
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
+```ts
+// app.config.ts
+export const appConfig: ApplicationConfig = {
+  providers: [
+    provideHttpClient(),
+    provideRouter(routes),
+    provideZoneChangeDetection(),
+    provideAnimationsAsync(),
+    providePrimeNG(),
+    provideAngularSvgIcon(),
+    { provide: APP_INFO, useValue: packageJson },
+  ]
+};
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+---
 
-```bash
-ng generate --help
+### 🗣️ How I’d explain this in an interview:
+
+> “I'm using the latest standalone approach from Angular 15+, so instead of relying on an `AppModule`, my app bootstraps directly via `main.ts`. All global providers like routing, HTTP, and third-party libraries are configured in `app.config.ts`.
+>
+> This gives me a cleaner, tree-shakable app with fewer dependencies — and it signals I’m keeping up with modern Angular best practices.”
+
+---
+
+### 📝 Reflection Questions
+- Do I understand the difference between module-based and standalone bootstrapping?
+- Could I add or remove a provider without breaking anything?
+- Can I explain this setup confidently in 1–2 sentences?
+
+---
+
+More steps coming soon...
+
+---
+
+# 📘 README.md
+
+## Angular Admin Dashboard 🚀
+
+A modern Angular admin dashboard built with:
+
+- ✅ Standalone Components & App Config
+- ✅ Lazy Loaded Routes & Components
+- ✅ TailwindCSS + PrimeNG for clean UI
+- ✅ Signals for Reactive State
+- ✅ Modern DI using `inject()`
+- ✅ Scalable project structure: `core/`, `shared/`, `features/`, `layouts/`
+
+---
+
+### 💡 Tech Stack
+
+- Angular 19+
+- Standalone API (no NgModules)
+- Signals for reactive state
+- TailwindCSS for styling
+- PrimeNG component library
+- SVG Icon system via `provideAngularSvgIcon`
+- ESLint + Prettier
+- PNPM + PostCSS
+
+---
+
+### 🗂️ Folder Structure (Inspired by Trajan's Enterprise Architecture)
+
+```
+src/
+├── app/
+│   ├── core/         # Singletons, guards, interceptors
+│   ├── shared/       # Reusable components (buttons, etc.)
+│   ├── layouts/      # App shell and layout templates
+│   ├── features/     # Business logic split into modules (auth, profile, etc.)
+│   ├── app.config.ts # App-wide providers
+│   ├── app.routes.ts # Top-level routing
+│   └── app.component.ts
+├── assets/
+├── styles.css
+└── main.ts
 ```
 
-## Building
+---
 
-To build the project run:
+### 📸 Screenshots & Demos
 
-```bash
-ng build
-```
+Coming soon...
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+---
 
-## Running unit tests
+### 🧠 Want to Learn More?
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+This project applies principles from:
+- [Modern Angular (Manfred Steyer)](https://leanpub.com/modern-angular)
+- [Enterprise Angular (Steyer)](https://leanpub.com/enterprise-angular)
+- [Angular Experts Architecture Guide (Tomas Trajan)](https://angularexperts.io)
 
-```bash
-ng test
-```
+---
 
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
+### 📦 Install & Run
 
 ```bash
-ng e2e
+pnpm install
+pnpm start
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+---
