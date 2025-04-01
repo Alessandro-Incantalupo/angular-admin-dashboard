@@ -8,20 +8,31 @@ import { provideAngularSvgIcon } from 'angular-svg-icon';
 import { provideHttpClient } from '@angular/common/http';
 import { APP_INFO } from './core/tokens/version.token';
 
+/**
+ * app.config.ts = global config file passed into bootstrapApplication()
+ * It contains all the DI providers Angular should use app-wide.
+ */
 export const appConfig: ApplicationConfig = {
   providers: [
-    provideZoneChangeDetection({ eventCoalescing: true }),
+    // Enables Angular routing with lazy loading and route guards
     provideRouter(routes),
-    provideAnimationsAsync(),
-    provideAngularSvgIcon(),
+
+    // Adds HttpClient so we can make HTTP requests in services
     provideHttpClient(),
+
+    // Provides Angular's change detection system (required by default)
+    provideZoneChangeDetection(),
+
+    // Enables animations with better performance (lazy initialization)
+    provideAnimationsAsync(),
+
+    // Registers PrimeNG UI config so components work globally
     providePrimeNG(),
-    {
-      provide: APP_INFO,
-      useValue: {
-        name: packageJson.name,
-        version: packageJson.version,
-      },
-    },
+
+    // Allows using SVG icons like <svg-icon src="..."></svg-icon>
+    provideAngularSvgIcon(),
+
+    // Custom DI token containing package metadata (e.g. version, name)
+    { provide: APP_INFO, useValue: packageJson },
   ],
 };
