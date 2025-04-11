@@ -1,7 +1,7 @@
 import { ErrorPageComponent } from './features/error-page/error-page.component';
-import { AuthGuard } from './core/guards/auth.guard';
-import { PATHS } from './core/costants/routes';
+import { PATHS } from './core/constants/routes';
 import { Routes } from '@angular/router';
+import { AuthGuard } from './core/guards';
 
 export const routes: Routes = [
   // { path: '', pathMatch: 'full', redirectTo: 'home' },

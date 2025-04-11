@@ -1,7 +1,6 @@
 import { Component, inject, signal } from '@angular/core';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { AuthService } from '../auth/services/auth.service';
-import { PATHS } from '../../core/costants/routes';
 import { SvgIconComponent } from 'angular-svg-icon';
 import { ButtonComponent } from '../../shared/button/button.component';
 import { BreadcrumbComponent } from '../../shared/breadcrumb/breadcrumb.component';
