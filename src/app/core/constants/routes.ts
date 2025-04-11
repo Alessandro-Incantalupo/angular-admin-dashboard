@@ -12,7 +12,7 @@ export const PATHS = {
   ERRORS: 'errors',
   ERROR_404: 'errors/404',
   ERROR_500: 'errors/500',
-  FEATURES: '',
+  FEATURES_UI: 'features/ui',
   FEATURES_TABLE: 'features/ui/table',
   DOWNLOAD: 'download',
   GIFT: 'gift',
