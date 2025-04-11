@@ -2,7 +2,7 @@ import { Injectable, OnDestroy, signal } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { CustomMenuItem, SubMenuItem } from '../../../core/models/menu.model';
-import { pages } from '../../../core/costants/menu';
+import { pages } from '../../../core/constants/menu';
 
 @Injectable()
 export class MenuService implements OnDestroy {

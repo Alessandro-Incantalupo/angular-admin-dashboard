@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
 import SignUpComponent from './sign-up/sign-up.component';
-import { UnsavedChangesGuard } from '../../core/guards/unsaved-changes.guard';
+import { UnsavedChangesGuard } from '../../core/guards';
 
 // Exporting the default array of routes for the MainLayoutComponent
 // This array includes a route with an empty path that uses MainLayoutComponent

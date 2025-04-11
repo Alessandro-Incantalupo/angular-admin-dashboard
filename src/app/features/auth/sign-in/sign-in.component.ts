@@ -4,7 +4,7 @@ import { Router, RouterLink } from '@angular/router';
 import { ButtonComponent } from '../../../shared/button/button.component';
 import { NonNullableFormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AuthService } from '../services/auth.service';
-import { PATHS } from '../../../core/costants/routes';
+import { PATHS } from '../../../core/constants/routes';
 
 @Component({
   selector: 'app-sign-in',

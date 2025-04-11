@@ -5,7 +5,7 @@ import { Router, RouterLink } from '@angular/router';
 import { ThemeService } from '../../../../../core/services/theme.service';
 import { ClickOutsideDirective } from '../../../../../shared/directives/click-outside.directive';
 import { AuthService } from '../../../../../features/auth/services/auth.service';
-import { PATHS } from '../../../../../core/costants/routes';
+import { PATHS } from '../../../../../core/constants/routes';
 
 @Component({
   selector: 'app-profile-menu',
