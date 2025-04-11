@@ -1,3 +1,37 @@
 # Ignore artifacts:
+# node_modules always
+node_modules/
+
+# Build output
+dist/
+coverage/
+
+# Assets should NOT be formatted
+src/assets/
+
+# Cache folders
+.angular/
+.cache/
+tmp/
+temp/
+
+# lock files never touched
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
+
+# Generated stuff
+*.svg
+*.png
+*.jpg
+*.jpeg
+*.ico
+*.mp4
+*.webm
+*.gif
+
+# If you use mocks or json test data
+mocks/
+*.mock.json
 build
-coverage
+e2e
