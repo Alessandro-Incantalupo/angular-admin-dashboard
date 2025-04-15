@@ -18,11 +18,11 @@
     "target": "ES2022",
     "module": "ES2022",
     "paths": {
-      "@core/*": ["src/app/core/*"],
-      "@shared/*": ["src/app/shared/*"],
-      "@layouts/*": ["src/app/layouts/*"],
-      "@features/*": ["src/app/features/*"],
-      "@environments/*": ["src/environments/*"]
+      "@core/*": ["./src/app/core/*"],
+      "@shared/*": ["./src/app/shared/*"],
+      "@layouts/*": ["./src/app/layouts/*"],
+      "@features/*": ["./src/app/features/*"],
+      "@environments/*": ["./src/environments/*"]
     }
 
   },
