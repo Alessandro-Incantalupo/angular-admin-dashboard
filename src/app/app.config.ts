@@ -1,4 +1,8 @@
-import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
+import {
+  ApplicationConfig,
+  provideZoneChangeDetection,
+  isDevMode,
+} from '@angular/core';
 import { provideRouter } from '@angular/router';
 import packageJson from '../../package.json';
 import { routes } from './app.routes';
@@ -7,6 +11,8 @@ import { providePrimeNG } from 'primeng/config';
 import { provideAngularSvgIcon } from 'angular-svg-icon';
 import { provideHttpClient } from '@angular/common/http';
 import { APP_INFO } from './core/tokens/version.token';
+import { TranslocoHttpLoader } from './transloco-loader';
+import { provideTransloco } from '@jsverse/transloco';
 
 /**
  * app.config.ts = global config file passed into bootstrapApplication()
@@ -32,7 +38,29 @@ export const appConfig: ApplicationConfig = {
     // Allows using SVG icons like <svg-icon src="..."></svg-icon>
     provideAngularSvgIcon(),
 
+    provideTransloco({
+      config: {
+        availableLangs: ['en', 'it'],
+        defaultLang: 'en',
+        // Remove this option if your application doesn't support changing language in runtime.
+        reRenderOnLangChange: true,
+        prodMode: !isDevMode(),
+      },
+      loader: TranslocoHttpLoader,
+    }),
+
     // Custom DI token containing package metadata (e.g. version, name)
     { provide: APP_INFO, useValue: packageJson },
+    provideHttpClient(),
+    provideTransloco({
+      config: {
+        availableLangs: ['en', 'it'],
+        defaultLang: 'en',
+        // Remove this option if your application doesn't support changing language in runtime.
+        reRenderOnLangChange: true,
+        prodMode: !isDevMode(),
+      },
+      loader: TranslocoHttpLoader,
+    }),
   ],
 };
