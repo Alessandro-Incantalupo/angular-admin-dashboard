@@ -1,8 +1,9 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { TranslocoDirective } from '@jsverse/transloco';
 
 @Component({
   selector: 'app-user-list',
-  imports: [],
+  imports: [TranslocoDirective],
   templateUrl: './user-list.component.html',
   styles: `
     :host {
