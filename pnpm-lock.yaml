@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@angular-architects/ngrx-toolkit':
+        specifier: ^19.1.0
+        version: 19.1.0(@angular/common@19.2.0(@angular/core@19.2.0(rxjs@7.8.2)(zone.js@0.15.0))(rxjs@7.8.2))(@angular/core@19.2.0(rxjs@7.8.2)(zone.js@0.15.0))(@ngrx/signals@19.1.0(@angular/core@19.2.0(rxjs@7.8.2)(zone.js@0.15.0))(rxjs@7.8.2))(rxjs@7.8.2)
       '@angular/common':
         specifier: ^19.2.0
         version: 19.2.0(@angular/core@19.2.0(rxjs@7.8.2)(zone.js@0.15.0))(rxjs@7.8.2)
@@ -32,6 +35,12 @@ importers:
       '@jsverse/transloco':
         specifier: 7.6.1
         version: 7.6.1(@angular/core@19.2.0(rxjs@7.8.2)(zone.js@0.15.0))(typescript@5.7.3)
+      '@ngrx/operators':
+        specifier: ^19.1.0
+        version: 19.1.0(rxjs@7.8.2)
+      '@ngrx/signals':
+        specifier: ^19.1.0
+        version: 19.1.0(@angular/core@19.2.0(rxjs@7.8.2)(zone.js@0.15.0))(rxjs@7.8.2)
       '@primeng/themes':
         specifier: ^19.0.9
         version: 19.0.9
@@ -142,6 +151,18 @@ packages:
   '@ampproject/remapping@2.3.0':
     resolution: {integrity: sha512-30iZtAPgz+LTIYoeivqYo853f02jBYSd5uGnGpkFV0M3xOt9aN73erkgYAmZU43x4VfqcnLxW9Kpg3R5LC4YYw==}
     engines: {node: '>=6.0.0'}
+
+  '@angular-architects/ngrx-toolkit@19.1.0':
+    resolution: {integrity: sha512-R/1SB2QLNUy46tolXwct39lLgl1st0dsKr4uSgu2VUnp6gP7r6QsIKHcWah7PqlQu9ME8QXuQvkQN4nfN3xnJw==}
+    peerDependencies:
+      '@angular/common': ^19.0.0
+      '@angular/core': ^19.0.0
+      '@ngrx/signals': ^19.0.0
+      '@ngrx/store': ^19.0.0
+      rxjs: ^7.0.0
+    peerDependenciesMeta:
+      '@ngrx/store':
+        optional: true
 
   '@angular-devkit/architect@0.1902.0':
     resolution: {integrity: sha512-F/3O38QOYCwNqECNQauKb56GYdST9SrRSiqTNc5xpnUL//A09kaucmKSZ2VJAVY7K/rktSQn5viiQ3rTJLiZgA==}
@@ -1613,6 +1634,20 @@ packages:
   '@napi-rs/nice@1.0.1':
     resolution: {integrity: sha512-zM0mVWSXE0a0h9aKACLwKmD6nHcRiKrPpCfvaKqG1CqDEyjEawId0ocXxVzPMCAm6kkWr2P025msfxXEnt8UGQ==}
     engines: {node: '>= 10'}
+
+  '@ngrx/operators@19.1.0':
+    resolution: {integrity: sha512-gpo69FnoAF69X68pk9eWFHB630xqerBYkF68wOFMciLOV2im3b/fAf+0sRvnQJmVtG/8jO0IPVdvLqa1TbWmPA==}
+    peerDependencies:
+      rxjs: ^6.5.3 || ^7.4.0
+
+  '@ngrx/signals@19.1.0':
+    resolution: {integrity: sha512-v8sbb+Iox9kdIaKbFgt4Z1W+NxzIU4+g+6qQU6/c27UmtQXv0s1zUKKofPRK0qwkaZzNWkxNToxyoE285ukqcQ==}
+    peerDependencies:
+      '@angular/core': ^19.0.0
+      rxjs: ^6.5.3 || ^7.4.0
+    peerDependenciesMeta:
+      rxjs:
+        optional: true
 
   '@ngtools/webpack@19.2.0':
     resolution: {integrity: sha512-63/8ys3bNK2h7Py/dKHZ4ZClxQz6xuz3skUgLZIMs9O076KPsHTKDKEDG2oicmwe/nOXjVt6n9Z4wprFaRLbvw==}
@@ -5315,6 +5350,14 @@ snapshots:
       '@jridgewell/gen-mapping': 0.3.8
       '@jridgewell/trace-mapping': 0.3.25
 
+  '@angular-architects/ngrx-toolkit@19.1.0(@angular/common@19.2.0(@angular/core@19.2.0(rxjs@7.8.2)(zone.js@0.15.0))(rxjs@7.8.2))(@angular/core@19.2.0(rxjs@7.8.2)(zone.js@0.15.0))(@ngrx/signals@19.1.0(@angular/core@19.2.0(rxjs@7.8.2)(zone.js@0.15.0))(rxjs@7.8.2))(rxjs@7.8.2)':
+    dependencies:
+      '@angular/common': 19.2.0(@angular/core@19.2.0(rxjs@7.8.2)(zone.js@0.15.0))(rxjs@7.8.2)
+      '@angular/core': 19.2.0(rxjs@7.8.2)(zone.js@0.15.0)
+      '@ngrx/signals': 19.1.0(@angular/core@19.2.0(rxjs@7.8.2)(zone.js@0.15.0))(rxjs@7.8.2)
+      rxjs: 7.8.2
+      tslib: 2.8.1
+
   '@angular-devkit/architect@0.1902.0(chokidar@4.0.3)':
     dependencies:
       '@angular-devkit/core': 19.2.0(chokidar@4.0.3)
@@ -6859,6 +6902,18 @@ snapshots:
       '@napi-rs/nice-win32-ia32-msvc': 1.0.1
       '@napi-rs/nice-win32-x64-msvc': 1.0.1
     optional: true
+
+  '@ngrx/operators@19.1.0(rxjs@7.8.2)':
+    dependencies:
+      rxjs: 7.8.2
+      tslib: 2.8.1
+
+  '@ngrx/signals@19.1.0(@angular/core@19.2.0(rxjs@7.8.2)(zone.js@0.15.0))(rxjs@7.8.2)':
+    dependencies:
+      '@angular/core': 19.2.0(rxjs@7.8.2)(zone.js@0.15.0)
+      tslib: 2.8.1
+    optionalDependencies:
+      rxjs: 7.8.2
 
   '@ngtools/webpack@19.2.0(@angular/compiler-cli@19.2.0(@angular/compiler@19.2.0(@angular/core@19.2.0(rxjs@7.8.2)(zone.js@0.15.0)))(typescript@5.7.3))(typescript@5.7.3)(webpack@5.98.0(esbuild@0.25.0))':
     dependencies:
