@@ -11,9 +11,12 @@
 
       @if (userStore.hasUsers()) {
         <ul class="list-disc ml-6">
-          @for (user of userStore.users(); track user.id) {
-            <li>{{ user.name }} – {{ user.email }}</li>
-          }
+          <app-user-table
+            [users]="userStore.users()"
+            (editAction)="onEdit($event)"
+            (deleteAction) ="onDelete($event)"
+          ></app-user-table>
+
         </ul>
       } @else {
         <p>{{ t('users.empty') }}</p>
