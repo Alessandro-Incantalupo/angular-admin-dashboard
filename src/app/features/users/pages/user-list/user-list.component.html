@@ -1,9 +1,25 @@
 <div *transloco="let t">
-  <h1  class="text-2xl font-bold mb-4">Users</h1>
-  <p>
+  <h1 class="text-2xl font-bold mb-4">{{ t('users.title') }}</h1>
 
-    {{t('users')}}
+  @if (userStore.loading()) {
+    <p>{{ t('users.loading') }}</p>
+  } @else {
 
-  </p>
+    @if (userStore.error()) {
+      <p class="text-red-500">{{ t('users.error') }}</p>
+    } @else {
 
+      @if (userStore.hasUsers()) {
+        <ul class="list-disc ml-6">
+          @for (user of userStore.users(); track user.id) {
+            <li>{{ user.name }} – {{ user.email }}</li>
+          }
+        </ul>
+      } @else {
+        <p>{{ t('users.empty') }}</p>
+      }
+
+    }
+
+  }
 </div>
