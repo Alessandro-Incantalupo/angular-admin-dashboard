@@ -24,7 +24,15 @@ export class UsersService {
     );
   }
 
-  // (optional for Day 2)
-  // addUser(user: User) { ... }
-  // updateUser(user: User) { ... }
+  addUser(user: User) {
+    return this.http.post<User>(this.usersUrl, user);
+  }
+
+  updateUser(user: User) {
+    return this.http.put<User>(`${this.usersUrl}/${user.id}`, user);
+  }
+
+  deleteUser(userId: string) {
+    return this.http.delete(`${this.usersUrl}/${userId}`);
+  }
 }
