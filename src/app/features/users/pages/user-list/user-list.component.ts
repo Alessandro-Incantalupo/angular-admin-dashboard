@@ -1,13 +1,8 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  inject,
-  input,
-} from '@angular/core';
-import { TranslocoDirective } from '@jsverse/transloco';
-import { UsersStore } from '@features/users/state/user.store';
-import { User } from '@features/users/models/user.model';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { UserTableComponent } from '@features/users/components/user-table/user-table.component';
+import { User } from '@features/users/models/user.model';
+import { UsersStore } from '@features/users/state/user.store';
+import { TranslocoDirective } from '@jsverse/transloco';
 
 @Component({
   selector: 'app-user-list',
@@ -27,6 +22,16 @@ export default class UserListComponent {
   }
 
   onDelete(user: User) {
-    console.log('Delete user:', user);
+    this.userStore.deleteUser(user.id);
+  }
+
+  addUser() {
+    this.userStore.addUser({
+      id: crypto.randomUUID(),
+      name: 'New User',
+      email: 'new@example.com',
+      role: 'user',
+      status: 'active',
+    });
   }
 }
