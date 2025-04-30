@@ -3,6 +3,7 @@ import { UserTableComponent } from '@features/users/components/user-table/user-t
 import { User } from '@features/users/models/user.model';
 import { UsersStore } from '@features/users/state/user.store';
 import { TranslocoDirective } from '@jsverse/transloco';
+import { toast } from 'ngx-sonner';
 
 @Component({
   selector: 'app-user-list',
@@ -32,6 +33,11 @@ export default class UserListComponent {
       email: 'new@example.com',
       role: 'user',
       status: 'active',
+    });
+    toast.success('User created!', {
+      description: 'The user has been added to the system.',
+      duration: 4000,
+      position: 'top-right',
     });
   }
 }
