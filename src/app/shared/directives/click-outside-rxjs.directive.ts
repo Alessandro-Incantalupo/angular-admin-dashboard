@@ -4,6 +4,7 @@ import { outputFromObservable } from '@angular/core/rxjs-interop';
 import { filter, fromEvent } from 'rxjs';
 
 @Directive({
+  // eslint-disable-next-line @angular-eslint/directive-selector
   selector: '[clickOutsideRxjs]',
   standalone: true,
 })
@@ -13,7 +14,10 @@ export class ClickOutsideRxjsDirective {
 
   clickOutside = outputFromObservable(
     fromEvent(this.dom, 'click').pipe(
-      filter((event) => !this.elementRef.nativeElement.contains(event.target as HTMLElement))
+      filter(
+        event =>
+          !this.elementRef.nativeElement.contains(event.target as HTMLElement)
+      )
     )
   );
 }
