@@ -1,17 +1,17 @@
-import { Component, inject } from '@angular/core';
 import { NgClass } from '@angular/common';
-import { SvgIconComponent } from 'angular-svg-icon';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
-import { ThemeService } from '../../../../../core/services/theme.service';
-import { ClickOutsideDirective } from '../../../../../shared/directives/click-outside.directive';
-import { AuthService } from '../../../../../features/auth/services/auth.service';
-import { PATHS } from '../../../../../core/constants/routes';
-
+import { PATHS } from '@core/constants/routes';
+import { ThemeService } from '@core/services/theme.service';
+import { AuthService } from '@features/auth/services/auth.service';
+import { ClickOutsideDirective } from '@shared/directives/click-outside.directive';
+import { SvgIconComponent } from 'angular-svg-icon';
 @Component({
   selector: 'app-profile-menu',
   imports: [NgClass, SvgIconComponent, RouterLink, ClickOutsideDirective],
   templateUrl: './profile-menu.component.html',
   styles: ``,
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProfileMenuComponent {
   themeService = inject(ThemeService);
@@ -75,14 +75,14 @@ export class ProfileMenuComponent {
   }
 
   toggleThemeMode() {
-    this.themeService.theme.update((theme) => {
+    this.themeService.theme.update(theme => {
       const mode = !this.themeService.isDark ? 'dark' : 'light';
       return { ...theme, mode: mode };
     });
   }
 
   toggleThemeColor(color: string) {
-    this.themeService.theme.update((theme) => {
+    this.themeService.theme.update(theme => {
       return { ...theme, color: color };
     });
   }

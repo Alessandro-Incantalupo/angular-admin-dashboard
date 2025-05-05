@@ -1,7 +1,14 @@
-import { Component, input, OnInit, output } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  input,
+  OnInit,
+  output,
+} from '@angular/core';
 import { ButtonProps } from './model/button.model';
 
 @Component({
+  // eslint-disable-next-line @angular-eslint/component-selector
   selector: 'button[app-button]',
   imports: [],
   templateUrl: './button.component.html',
@@ -10,6 +17,7 @@ import { ButtonProps } from './model/button.model';
   //   class: 'button',
   //   '(click)': 'onButtonClick()',
   // },
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ButtonComponent implements OnInit {
   impact = input<ButtonProps['impact']>('none');
@@ -18,7 +26,8 @@ export class ButtonComponent implements OnInit {
   tone = input<ButtonProps['tone']>('primary');
   shadow = input<ButtonProps['shadow']>('none');
   full = input(false, {
-    transform: (value: boolean | string) => (typeof value === 'string' ? value === '' : value),
+    transform: (value: boolean | string) =>
+      typeof value === 'string' ? value === '' : value,
   });
 
   buttonClick = output();
@@ -28,10 +37,14 @@ export class ButtonComponent implements OnInit {
   baseClasses =
     'font-semibold focus-visible:outline-none flex items-center justify-center focus-visible:ring-2 focus-visible:ring-offset-2 active:translate-y-px disabled:pointer-events-none disabled:opacity-50';
 
-  impactClasses: Record<ButtonProps['tone'], Record<ButtonProps['impact'], string>> = {
+  impactClasses: Record<
+    ButtonProps['tone'],
+    Record<ButtonProps['impact'], string>
+  > = {
     primary: {
       bold: 'bg-primary text-primary-foreground hover:bg-primary/90 focus-visible:ring-primary',
-      light: 'bg-primary/20 text-primary hover:bg-primary/30 focus-visible:ring-primary',
+      light:
+        'bg-primary/20 text-primary hover:bg-primary/30 focus-visible:ring-primary',
       none: 'bg-transparent text-primary hover:bg-primary/10 focus-visible:ring-primary',
     },
     danger: {
@@ -42,7 +55,8 @@ export class ButtonComponent implements OnInit {
     },
     success: {
       bold: 'bg-green-500 text-green-950 hover:bg-green-600 focus-visible:ring-green-500',
-      light: 'bg-green-500/20 text-green-600 hover:bg-green-500/30 focus-visible:ring-green-500',
+      light:
+        'bg-green-500/20 text-green-600 hover:bg-green-500/30 focus-visible:ring-green-500',
       none: 'bg-transparent text-green-600 hover:bg-green-500/10 focus-visible:ring-green-500',
     },
     warning: {
@@ -59,7 +73,8 @@ export class ButtonComponent implements OnInit {
     },
     light: {
       bold: 'bg-muted text-muted-foreground hover:bg-muted/90 focus-visible:ring-muted',
-      light: 'bg-muted/20 text-muted-foreground hover:bg-muted focus-visible:ring-muted',
+      light:
+        'bg-muted/20 text-muted-foreground hover:bg-muted focus-visible:ring-muted',
       none: 'bg-transparent text-muted-foreground hover:bg-muted focus-visible:ring-muted',
     },
   };
@@ -90,7 +105,7 @@ export class ButtonComponent implements OnInit {
       this.sizeClasses[this.size()],
       this.shapeClasses[this.shape()],
       this.shadowClasses[this.shadow()],
-      this.full() ? 'w-full' : '',
+      this.full() ? 'w-full' : ''
     );
   }
 
