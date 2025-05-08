@@ -14,15 +14,25 @@
             (editAction)="onEdit($event)"
             (deleteAction)="onDelete($event)"
           ></app-user-table>
+
           <div class="mt-6 flex justify-end">
             <button
               class="bg-primary hover:bg-primary/90 focus:ring-primary/50 transform rounded px-6 py-3 text-sm font-medium text-white shadow-md transition-transform hover:scale-105 focus:ring-2 focus:outline-none"
-              (click)="addUser()"
-              aria-label="Add User"
+              (click)="toggleForm()"
+              aria-label="Toggle Add User Form"
             >
-              ➕ Add User
+              ➕ {{ showForm() ? t('users.hideForm') : t('users.addUser') }}
             </button>
           </div>
+
+          @if (showForm()) {
+            <div class="mt-4 rounded border bg-gray-50 p-4 shadow-md">
+              <h2 class="mb-2 text-lg font-semibold">
+                {{ t('users.addUserForm') }}
+              </h2>
+              <app-user-form class="block" />
+            </div>
+          }
         </div>
       } @else {
         <p>{{ t('users.empty') }}</p>
