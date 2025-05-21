@@ -1,6 +1,6 @@
 # ✅ Use Modern Angular Syntax
 
-We're building with **Angular 17+** and embracing the new syntax and standalone mindset.
+We're building with **Angular 19+** and embracing the new syntax and standalone mindset.
 
 ## 💡 Preferred Syntax
 
